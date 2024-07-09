@@ -64,6 +64,18 @@ module.exports = {
             return fetch(config.getRoot() + method + params)
                 .then(res => res.json())
                 .then(data => data.tag)
+        },
+        userTopSongs(root, args) {
+            const method = "&method=user.gettoptracks"
+            const params = "&user=" + args.user
+
+            const value = config.getRoot() + method + params
+
+
+            return fetch(config.getRoot() + method + params)
+                .then(res => res.json())
+                .then(data => data.toptracks.track)
+                .then(tracks => tracks.map((t) => getTrack(t.name, t.artist.name)))
         }
     }
 }

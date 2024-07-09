@@ -6,5 +6,6 @@ module.exports = `
         charts(limit: Int): [Track]
         genres(limit: Int): [Tag]
         genre(name: String): Tag
+        userTopSongs(user: String): [Track]
     }
 `
